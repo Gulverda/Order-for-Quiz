@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Order List</h2>
+        
+    <table>
+      <thead>
+        <tr>
+          <th>TEAM MEMBER</th>
+          <th>LOADING</th>
+          <th>BILLABLE</th>
+          <th>EFFICIENCY %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders" (click)="selectOrder(order.id)">
+          <td>{{ order.name }}</td>
+          <td [style.color]="
+            order.status === 'High' ? 'green' :
+            order.status === 'Medium' ? 'orange' :
+            'red'
+          ">
+            {{ order.status }}
+          </td>
+          <td>{{ order.billable }}</td>
+          <td>{{ order.efficiency }}%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>{{ orders.length }} out of {{ orders.length }} orders</p>
+
+  </div>
+  
